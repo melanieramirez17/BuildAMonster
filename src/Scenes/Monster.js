@@ -45,9 +45,9 @@ class Monster extends Phaser.Scene {
         my.sprite.leftHorn = this.add.sprite(this.bodyX - 70, this.bodyY - 120, "monsterParts", "detail_red_eye.png");
         my.sprite.leftHorn.flipX = true;  // flip the left horn horizontally to mirror the right horn
         my.sprite.mouthOpen = this.add.sprite(this.bodyX, this.bodyY + 35, "monsterParts", "mouthC.png") // this is the smile
-        my.sprite.fangs = this.add.sprite(this.bodyX, this.bodyY + 35, "monsterParts", "mouthB.png") // this is the fangs
-        my.sprite.mouthOpen.visible = false;  // start with the smile hidden
-        my.sprite.fangs.visible = false;  // start with the fangs hidden
+        //my.sprite.fangs = this.add.sprite(this.bodyX, this.bodyY + 35, "monsterParts", "mouthB.png") // this is the fangs
+        // my.sprite.mouthOpen.visible = false;  // start with the smile hidden
+        // my.sprite.fangs.visible = false;  // start with the fangs hidden
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
