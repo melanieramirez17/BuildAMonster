@@ -45,13 +45,21 @@ class Monster extends Phaser.Scene {
         my.sprite.leftHorn = this.add.sprite(this.bodyX - 70, this.bodyY - 120, "monsterParts", "detail_red_eye.png");
         my.sprite.leftHorn.flipX = true;  // flip the left horn horizontally to mirror the right horn
         my.sprite.mouthOpen = this.add.sprite(this.bodyX, this.bodyY + 35, "monsterParts", "mouthC.png") // this is the smile
-        //my.sprite.fangs = this.add.sprite(this.bodyX, this.bodyY + 35, "monsterParts", "mouthB.png") // this is the fangs
-        // my.sprite.mouthOpen.visible = false;  // start with the smile hidden
-        // my.sprite.fangs.visible = false;  // start with the fangs hidden
+        my.sprite.fangs = this.add.sprite(this.bodyX, this.bodyY + 35, "monsterParts", "mouthB.png") // this is the fangs
+        my.sprite.mouthOpen.visible = false;  // start with the smile hidden
+        my.sprite.fangs.visible = false;  // start with the fangs hidden
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
-        this.keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
+        this.input.keyboard.on('keydown-S', () => {
+            my.sprite.mouthOpen.visible = true;
+            my.sprite.fangs.visible = false;
+            my.sprite.mouthClosed.visible = false;
+        });
+        this.input.keyboard.on('keydown-F', () => {
+            my.sprite.mouthOpen.visible = false;
+            my.sprite.fangs.visible = true;
+            my.sprite.mouthClosed.visible = false;
+        });
 
         
     }
@@ -68,6 +76,8 @@ class Monster extends Phaser.Scene {
             my.sprite.mouthClosed.x -= 2;
             my.sprite.rightHorn.x -= 2;
             my.sprite.leftHorn.x -= 2;
+            my.sprite.mouthOpen.x -= 2;
+            my.sprite.fangs.x -= 2;
         }
         if (this.keyD.isDown) {
             my.sprite.body.x += 2;
@@ -79,9 +89,8 @@ class Monster extends Phaser.Scene {
             my.sprite.mouthClosed.x += 2;
             my.sprite.rightHorn.x += 2;
             my.sprite.leftHorn.x += 2;
+            my.sprite.mouthOpen.x += 2;
+            my.sprite.fangs.x += 2;
         }
-
-       
     }
-
 }
