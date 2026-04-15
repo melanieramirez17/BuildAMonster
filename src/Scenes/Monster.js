@@ -50,18 +50,8 @@ class Monster extends Phaser.Scene {
         my.sprite.fangs.visible = false;  // start with the fangs hidden
         this.keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         this.keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        this.input.keyboard.on('keydown-S', () => {
-            my.sprite.mouthOpen.visible = true;
-            my.sprite.fangs.visible = false;
-            my.sprite.mouthClosed.visible = false;
-        });
-        this.input.keyboard.on('keydown-F', () => {
-            my.sprite.mouthOpen.visible = false;
-            my.sprite.fangs.visible = true;
-            my.sprite.mouthClosed.visible = false;
-        });
-
-        
+        this.keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        this.keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);   
     }
 
     update() {
@@ -92,5 +82,16 @@ class Monster extends Phaser.Scene {
             my.sprite.mouthOpen.x += 2;
             my.sprite.fangs.x += 2;
         }
+        if (Phaser.Input.Keyboard.JustDown(this.keyS)) {
+            my.sprite.mouthOpen.visible = true;
+            my.sprite.fangs.visible = false;
+            my.sprite.mouthClosed.visible = false;
+        }
+        if (Phaser.Input.Keyboard.JustDown(this.keyF)) {
+            my.sprite.mouthOpen.visible = false;
+            my.sprite.fangs.visible = true;
+            my.sprite.mouthClosed.visible = false;
+        }
+
     }
 }
